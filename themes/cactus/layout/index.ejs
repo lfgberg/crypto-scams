@@ -1,0 +1,60 @@
+<section id="about" class="p-note">
+  <% if (config.description) { %>
+    <%- markdown(config.description) %>
+  <% } %>
+</section>
+
+<form id="scam-checklist">
+  <label><input type="checkbox" name="red_flag" value="team_anonymity"> Anonymous team</label><br>
+  <label><input type="checkbox" name="red_flag" value="no_whitepaper"> No whitepaper</label><br>
+  <label><input type="checkbox" name="red_flag" value="high_returns"> Promised high returns</label><br>
+</form>
+
+<div id="result" style="margin-top: 20px; font-family: Arial, sans-serif;">
+  <!-- Results will be displayed here -->
+</div>
+
+<script>
+function updateScamRisk() {
+  const flags = Array.from(document.querySelectorAll('input[name="red_flag"]:checked'))
+    .map(el => el.value);
+  
+  const resultDiv = document.getElementById('result');
+  resultDiv.innerHTML = ''; // Clear previous results
+
+  if (flags.includes('team_anonymity') || flags.includes('no_whitepaper')) {
+    resultDiv.innerHTML = `
+      <p style="color: red;">🚩 High Risk: The project has significant red flags.</p>
+      <a href="/resources/high-risk.html" style="color: blue; text-decoration: underline;">Learn how to identify scams</a>
+    `;
+  } else if (flags.includes('high_returns')) {
+    resultDiv.innerHTML = `
+      <p style="color: orange;">⚠️ Medium Risk: Be cautious and do further research.</p>
+      <a href="/resources/medium-risk.html" style="color: blue; text-decoration: underline;">Tips on cautious investing</a>
+    `;
+  } else {
+    resultDiv.innerHTML = `
+      <p style="color: green;">✅ Low Risk: No immediate red flags detected.</p>
+      <a href="/resources/low-risk.html" style="color: blue; text-decoration: underline;">Learn how to stay safe</a>
+    `;
+  }
+}
+
+// Attach the event listener to all checkboxes
+document.querySelectorAll('input[name="red_flag"]').forEach(checkbox => {
+  checkbox.addEventListener('change', updateScamRisk);
+});
+</script>
+
+<% if (site.data.projects) { %>
+<section id="projects">
+  <span class="h1"><a href="<%- url_for(theme.projects_url) %>"><%= __('index.projects') %></a></span>
+  <ul class="project-list">
+    <% for(var obj in site.data.projects){ %>
+      <li class="project-item">
+        <a href="<%= site.data.projects[obj].url %>"><%= site.data.projects[obj].name %></a>: <%- markdown(site.data.projects[obj].desc) %>
+      </li>
+    <% } %>
+  </ul>
+</section>
+<% } %>
