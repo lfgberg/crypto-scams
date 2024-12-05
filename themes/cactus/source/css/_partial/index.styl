@@ -39,3 +39,189 @@
   background-color: #c2535366
   border-color: red
   color: $color-text
+
+.checklist-container
+  background-color: lighten($color-background, 5%)
+  padding: 20px
+  border-radius: 8px
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+  font-family: $font-family-body
+  max-width: 600px
+  margin: 20px auto
+
+  h2
+    font-size: 1.5rem
+    margin-bottom: 15px
+    color: $color-heading
+
+  p
+    font-size: 1rem
+    margin-bottom: 20px
+    color: $color-text
+
+.checklist-form
+  display: flex
+  flex-direction: column
+  gap: 15px
+
+  label
+    position: relative
+    display: flex
+    align-items: center
+    font-size: 1rem
+    padding-left: 35px
+    color: $color-text
+    cursor: pointer
+    transition: color 0.3s ease
+
+    &:hover
+      color: $color-accent-1
+
+    input[type="checkbox"]
+      position: absolute
+      opacity: 0
+      cursor: pointer
+
+    .custom-checkbox
+      position: absolute
+      top: 0
+      left: 0
+      width: 20px
+      height: 20px
+      background-color: $color-background
+      border: 2px solid $color-border
+      border-radius: 4px
+      transition: background-color 0.3s, border-color 0.3s
+
+    input:checked ~ .custom-checkbox
+      background-color: $color-accent-1
+      border-color: $color-accent-1
+      background-image: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNOSAxMmw0IDQgNCA0Ii8+PC9zdmc+')
+      background-repeat: no-repeat
+      background-position: center
+      background-size: 12px
+
+.result-box
+  margin-top: 20px
+  padding: 15px
+  background-color: lighten($color-background, 10%)
+  border: 1px solid $color-border
+  border-radius: 8px
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+  text-align: center
+  font-size: 1rem
+  color: $color-text
+
+  p
+    margin-bottom: 15px
+    font-weight: 600
+
+.cta-button
+  display: inline-block
+  padding: 10px 20px
+  background-color: $color-link
+  color: #fff
+  font-size: 1rem
+  font-weight: bold
+  text-decoration: none
+  border-radius: 5px
+  transition: background-color 0.3s ease, transform 0.2s ease
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+
+  &:hover
+    background-color: darken($color-link, 10%)
+    transform: translateY(-3px)
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15)
+
+  &:active
+    background-color: darken($color-link, 15%)
+    transform: translateY(1px)
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1)
+
+
+label
+  position: relative
+  display: flex
+  align-items: center
+  font-size: 1rem
+  padding-left: 35px
+  color: $color-text
+  cursor: pointer
+  transition: color 0.3s ease
+
+  &:hover
+    color: $color-accent-1
+
+  input[type="checkbox"]
+    position: absolute
+    opacity: 0
+    cursor: pointer
+
+  .custom-checkbox
+    position: absolute
+    top: 0
+    left: 0
+    width: 20px
+    height: 20px
+    background-color: $color-background
+    border: 2px solid $color-border
+    border-radius: 4px
+    transition: background-color 0.3s, border-color 0.3s
+
+  input:checked ~ .custom-checkbox
+    background-color: $color-link
+    border-color: $color-link
+    background-image: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNOSAxMmw0IDQgNCA0Ii8+PC9zdmc+')
+    background-repeat: no-repeat
+    background-position: center
+    background-size: 12px
+
+  .tooltip
+    position: absolute
+    top: 50%
+    left: 110%
+    transform: translateY(-50%)
+    background-color: $color-background
+    color: $color-text
+    border: 1px solid $color-border
+    border-radius: 5px
+    padding: 10px
+    font-size: 0.9rem
+    line-height: 1.4
+    width: 250px
+    display: none
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+    z-index: 10
+
+    &::before
+      content: ''
+      position: absolute
+      top: 50%
+      left: -10px
+      transform: translateY(-50%)
+      border-width: 5px
+      border-style: solid
+      border-color: transparent $color-border transparent transparent
+
+  &:hover .tooltip
+    display: block
+
+.checklist-section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 1px solid $color-border;
+  border-radius: 5px;
+  background-color: lighten($color-background, 5%);
+}
+
+.checklist-section h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: $color-primary;
+}
+
+.checklist-section p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: $color-meta;
+}

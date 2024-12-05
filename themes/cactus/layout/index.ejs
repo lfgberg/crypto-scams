@@ -2,55 +2,118 @@
   Cryptocurrency can offer valuable investment opportunities, but it's also a relatively new and unregulated technology that is often used for scams. Because the blockchain is immutable by nauture, <strong>transactions cannot be changed</strong> once they've been made. This makes it very important to make sure a potential crypto project or site is legitamite since it may be <strong>impossible to get your money back</strong>.
 </section>
 
-<br>
-
-<!-- TODO: add css to make this a little alert callout block -->
 <div class="alert alert-warning">
   <strong>🚨 Warning:</strong> The contents of this site are not financial, investment, or legal advice. This is a resource designed to encourage you to critically evaluate potential crypto investment opportunities. 
 </div>
 
-<h1>Crypto Scam Identification Checklist</h1>
+<div class="checklist-container">
+  <h2>🔍 Cryptocurrency Scam Checklist</h2>
+  <p>Hover over the items to see more details and check the boxes for potential red flags:</p>
+  <form id="scam-checklist" class="checklist-form">
+     <!-- Section 1 -->
+  <div class="checklist-section">
+    <h3>Transparency</h3>
+    <p>Assess the transparency of the project. Does it provide sufficient information about its team and processes?</p>
+    <label>
+      <input type="checkbox" name="transparency" />
+      <span class="custom-checkbox"></span>
+      Anonymous Team
+      <span class="tooltip">A project with an anonymous team lacks transparency and accountability.</span>
+    </label>
+    <label>
+      <input type="checkbox" name="transparency" />
+      <span class="custom-checkbox"></span>
+      No Whitepaper
+      <span class="tooltip">A missing or vague whitepaper might indicate poor planning or lack of legitimacy.</span>
+    </label>
+  </div>
 
-<p> GYATT DAMN</p>
+  <!-- Section 2 -->
+  <div class="checklist-section">
+    <h3>Promises</h3>
+    <p>Evaluate the claims made by the project. Are they realistic, or do they sound too good to be true?</p>
+    <label>
+      <input type="checkbox" name="promises" />
+      <span class="custom-checkbox"></span>
+      Unrealistic Promises
+      <span class="tooltip">Promises of guaranteed returns are a red flag for scams.</span>
+    </label>
+  </div>
 
-<form id="scam-checklist">
-  <label><input type="checkbox" name="red_flag" value="team_anonymity"> Anonymous team</label><br>
-  <label><input type="checkbox" name="red_flag" value="no_whitepaper"> No whitepaper</label><br>
-  <label><input type="checkbox" name="red_flag" value="high_returns"> Promised high returns</label><br>
-</form>
+  <!-- Section 3 -->
+  <div class="checklist-section">
+    <h3>Security</h3>
+    <p>Verify whether the project has been properly vetted by professionals to ensure security and reliability.</p>
+    <label>
+      <input type="checkbox" name="security" />
+      <span class="custom-checkbox"></span>
+      No Audit
+      <span class="tooltip">Projects without audits might have security vulnerabilities.</span>
+    </label>
+  </div>
+  </form>
 
-<div id="result" style="margin-top: 20px; font-family: Arial, sans-serif;">
-  <!-- Results will be displayed here -->
+  <div id="result" class="result-box" style="display: none;"></div>
 </div>
 
+
 <script>
-function updateScamRisk() {
-  const flags = Array.from(document.querySelectorAll('input[name="red_flag"]:checked'))
-    .map(el => el.value);
-  
-  const resultDiv = document.getElementById('result');
-  resultDiv.innerHTML = ''; // Clear previous results
+  document.addEventListener("DOMContentLoaded", function () {
+  const checkboxes = document.querySelectorAll("input[type='checkbox']");
+  const resultBox = document.getElementById("result");
+  const resourceLinks = {
+    "Anonymous Team": "https://example.com/anonymous-team",
+    "No Whitepaper": "https://example.com/no-whitepaper",
+    "Unrealistic Promises": "https://example.com/unrealistic-promises",
+    "No Audit": "https://example.com/no-audit"
+  };
 
-  if (flags.includes('team_anonymity') || flags.includes('no_whitepaper')) {
-    resultDiv.innerHTML = `
-      <p style="color: red;">🚩 High Risk: The project has significant red flags.</p>
-      <a href="/resources/high-risk.html" style="color: blue; text-decoration: underline;">Learn how to identify scams</a>
-    `;
-  } else if (flags.includes('high_returns')) {
-    resultDiv.innerHTML = `
-      <p style="color: orange;">⚠️ Medium Risk: Be cautious and do further research.</p>
-      <a href="/resources/medium-risk.html" style="color: blue; text-decoration: underline;">Tips on cautious investing</a>
-    `;
-  } else {
-    resultDiv.innerHTML = `
-      <p style="color: green;">✅ Low Risk: No immediate red flags detected.</p>
-      <a href="/resources/low-risk.html" style="color: blue; text-decoration: underline;">Learn how to stay safe</a>
-    `;
+  const riskLevels = {
+    0: "Low Risk: No immediate red flags detected.",
+    1: "Medium Risk: Proceed with caution. Some red flags exist.",
+    2: "High Risk: Likely a scam. Avoid interacting with this project."
+  };
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", function () {
+      updateResult();
+    });
+  });
+
+  function updateResult() {
+    const selectedOptions = [];
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        selectedOptions.push(checkbox.parentElement.textContent.trim());
+      }
+    });
+
+    const riskLevel = Math.min(selectedOptions.length, 2); // Cap risk levels at High Risk (2)
+
+    if (selectedOptions.length > 0) {
+      const selectedOption = selectedOptions[0];
+      const resourceUrl = resourceLinks[selectedOption];
+      const riskMessage = riskLevels[riskLevel];
+
+      if (resourceUrl) {
+        resultBox.innerHTML = `
+          <p><strong>${riskMessage}</strong></p>
+          <p><strong>Based on your answers, consider the following resource:</strong></p>
+          <a href="${resourceUrl}" target="_blank" rel="noopener noreferrer" class="cta-button">
+            Learn More About "${selectedOption}"
+          </a>
+        `;
+        resultBox.style.display = "block";
+      } else {
+        resultBox.innerHTML = `
+          <p><strong>${riskMessage}</strong></p>
+          <p>We couldn't find a resource for your selection. Please try again.</p>
+        `;
+        resultBox.style.display = "block";
+      }
+    } else {
+      resultBox.style.display = "none"; // Hide the result box if no options are selected
+    }
   }
-}
-
-// Attach the event listener to all checkboxes
-document.querySelectorAll('input[name="red_flag"]').forEach(checkbox => {
-  checkbox.addEventListener('change', updateScamRisk);
 });
 </script>
