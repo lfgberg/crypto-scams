@@ -107,7 +107,6 @@ theme_config:
   colorscheme: dark
   nav:
     home: /
-    test: /test/
   posts_overview:
     show_all_posts: false
     post_count: 0
@@ -129,3 +128,16 @@ theme_config:
     url: /assets/anti-scammer-icon.png
     gravatar: false
     grayout: false
+  copyright:
+    start_year: 2024
+    end_year:
+  favicon:
+    desktop:
+      url: /assets/anti-scammer-icon.ico
+      gravatar: false
+    android:
+      url: /assets/anti-scammer-icon.ico
+      gravatar: false
+    apple:
+      url: /assets/anti-scammer-icon.ico
+      gravatar: false

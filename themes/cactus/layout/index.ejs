@@ -1,8 +1,17 @@
-<section id="about" class="p-note">
-  <% if (config.description) { %>
-    <%- markdown(config.description) %>
-  <% } %>
+<section id="description" class="p-note">
+  Cryptocurrency can offer valuable investment opportunities, but it's also a relatively new and unregulated technology that is often used for scams. Because the blockchain is immutable by nauture, <strong>transactions cannot be changed</strong> once they've been made. This makes it very important to make sure a potential crypto project or site is legitamite since it may be <strong>impossible to get your money back</strong>.
 </section>
+
+<br>
+
+<!-- TODO: add css to make this a little alert callout block -->
+<div class="alert alert-warning">
+  <strong>🚨 Warning:</strong> The contents of this site are not financial, investment, or legal advice. This is a resource designed to encourage you to critically evaluate potential crypto investment opportunities. 
+</div>
+
+<h1>Crypto Scam Identification Checklist</h1>
+
+<p> GYATT DAMN</p>
 
 <form id="scam-checklist">
   <label><input type="checkbox" name="red_flag" value="team_anonymity"> Anonymous team</label><br>
@@ -45,16 +54,3 @@ document.querySelectorAll('input[name="red_flag"]').forEach(checkbox => {
   checkbox.addEventListener('change', updateScamRisk);
 });
 </script>
-
-<% if (site.data.projects) { %>
-<section id="projects">
-  <span class="h1"><a href="<%- url_for(theme.projects_url) %>"><%= __('index.projects') %></a></span>
-  <ul class="project-list">
-    <% for(var obj in site.data.projects){ %>
-      <li class="project-item">
-        <a href="<%= site.data.projects[obj].url %>"><%= site.data.projects[obj].name %></a>: <%- markdown(site.data.projects[obj].desc) %>
-      </li>
-    <% } %>
-  </ul>
-</section>
-<% } %>
