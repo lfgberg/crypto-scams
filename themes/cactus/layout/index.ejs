@@ -8,47 +8,146 @@
 
 <div class="checklist-container">
   <h2>🔍 Cryptocurrency Scam Checklist</h2>
-  <p>Hover over the items to see more details and check the boxes for potential red flags:</p>
+  <p>Hover over the items to see more details and check the boxes for potential red flags that apply to a crypto project or platform:</p>
   <form id="scam-checklist" class="checklist-form">
      <!-- Section 1 -->
   <div class="checklist-section">
-    <h3>Transparency</h3>
-    <p>Assess the transparency of the project. Does it provide sufficient information about its team and processes?</p>
+    <h3>General</h3>
     <label>
-      <input type="checkbox" name="transparency" />
+      <input type="checkbox" name="introduced-online" />
       <span class="custom-checkbox"></span>
-      Anonymous Team
-      <span class="tooltip">A project with an anonymous team lacks transparency and accountability.</span>
+      Introduced Online
+      <span class="tooltip">Approached by someone you met online, such as through a chat or dating platform.</span>
     </label>
     <label>
-      <input type="checkbox" name="transparency" />
+      <input type="checkbox" name="unsolicited-comms" />
       <span class="custom-checkbox"></span>
-      No Whitepaper
-      <span class="tooltip">A missing or vague whitepaper might indicate poor planning or lack of legitimacy.</span>
+      Unsolicited Communication
+      <span class="tooltip">Unexpected communication through an email, call, or text that you didn't sign up for.</span>
+    </label>
+    <label>
+      <input type="checkbox" name="no-experience" />
+      <span class="custom-checkbox"></span>
+      No Experience Required
+      <span class="tooltip">Advertises that you don't need any prior crypto or trading experience.</span>
+    </label>
+    <label>
+      <input type="checkbox" name="private-key" />
+      <span class="custom-checkbox"></span>
+      Requests Private Key or Seed Phrase
+      <span class="tooltip">Asks for sensitive information such as a private key or seed phrase.</span>
+    </label>
+    <label>
+      <input type="checkbox" name="airdrop" />
+      <span class="custom-checkbox"></span>
+      Free Offers
+      <span class="tooltip">Promises free tokens, or NFTs in an "airdrop".</span>
+    </label>
+    <label>
+      <input type="checkbox" name="flashy-ads" />
+      <span class="custom-checkbox"></span>
+      Flashy Advertisement
+      <span class="tooltip">Leverages celebrity endorsements, has extensive advertising campaigns, and tries to generate a lot of hype.</span>
+    </label>
+    <label>
+      <input type="checkbox" name="untrustworthy-platforms" />
+      <span class="custom-checkbox"></span>
+      Untrustworthy Platforms
+      <span class="tooltip">Hosted on platforms like pump.fun, mint.club, or ape.store.</span>
     </label>
   </div>
 
   <!-- Section 2 -->
   <div class="checklist-section">
-    <h3>Promises</h3>
-    <p>Evaluate the claims made by the project. Are they realistic, or do they sound too good to be true?</p>
+    <h3>Project Details</h3>
     <label>
-      <input type="checkbox" name="promises" />
+      <input type="checkbox" name="anonymous" />
       <span class="custom-checkbox"></span>
-      Unrealistic Promises
-      <span class="tooltip">Promises of guaranteed returns are a red flag for scams.</span>
+      Anonymous Team
+      <span class="tooltip">Developers or founders aren't publicly identified.</span>
+    </label>
+    <label>
+      <input type="checkbox" name="no-whitepaper" />
+      <span class="custom-checkbox"></span>
+      No Whitepaper
+      <span class="tooltip">Missing documentation explaining the project.</span>
+    </label>
+    <label>
+      <input type="checkbox" name="bad-whitepaper" />
+      <span class="custom-checkbox"></span>
+      Low Quality Whitepaper
+      <span class="tooltip">Documentation explaining the project lacks detail, reads like a sales pitch, or doesn't explain key components of the project.</span>
+    </label>
+    <label>
+      <input type="checkbox" name="new-project" />
+      <span class="custom-checkbox"></span>
+      New & Unknown
+      <span class="tooltip">A recently launched project with little or no recognition.</span>
+    </label>
+    <label>
+      <input type="checkbox" name="FDIC" />
+      <span class="custom-checkbox"></span>
+      Claims to be FDIC Insured
+      <span class="tooltip">Claims to be federally insured - NO crypto assets are federally insured, and nothing can protect you again market losses.</span>
+    </label>
+    <label>
+      <input type="checkbox" name="no-registration" />
+      <span class="custom-checkbox"></span>
+      No Registration
+      <span class="tooltip">Company isn't registered in the US.</span>
+    </label>
+    <label>
+      <input type="checkbox" name="contact-info" />
+      <span class="custom-checkbox"></span>
+      No Contact Information
+      <span class="tooltip">Missing contact information, a customer service line, or a physical address/office.</span>
     </label>
   </div>
 
   <!-- Section 3 -->
   <div class="checklist-section">
-    <h3>Security</h3>
-    <p>Verify whether the project has been properly vetted by professionals to ensure security and reliability.</p>
+    <h3>Technical Details</h3>
     <label>
-      <input type="checkbox" name="security" />
+      <input type="checkbox" name="guarenteed-returns" />
       <span class="custom-checkbox"></span>
-      No Audit
-      <span class="tooltip">Projects without audits might have security vulnerabilities.</span>
+      Guarentees Returns
+      <span class="tooltip">Guarentees a return on investments.</span>
+    </label>
+    <label>
+      <input type="checkbox" name="big-promises" />
+      <span class="custom-checkbox"></span>
+      Too Good to be True
+      <span class="tooltip">Promises unusually high returns, the annual return of the S&P 500 is only around 10%.</span>
+    </label>
+    <label>
+      <input type="checkbox" name="moneyin-moneyout" />
+      <span class="custom-checkbox"></span>
+      More In = More Out
+      <span class="tooltip">Guarentees that the more you invest, the more you'll earn.</span>
+    </label>
+    <label>
+      <input type="checkbox" name="special-offers" />
+      <span class="custom-checkbox"></span>
+      Special Offers or Investment Matching
+      <span class="tooltip">Offers special loans, investment matching, or extreme margins.</span>
+    </label>
+    <label>
+      <input type="checkbox" name="requires-deposit" />
+      <span class="custom-checkbox"></span>
+      Deposit Requirement
+      <span class="tooltip">Requires an upfront deposit to make an account.</span>
+    </label>
+    <label>
+      <input type="checkbox" name="withdrawal" />
+      <span class="custom-checkbox"></span>
+      Withdrawal Issues
+      <span class="tooltip">Makes withdrawing funds difficult, charges a fee, claims there's long delays, etc.</span>
+    </label>
+    <label>
+      <input type="checkbox" name="unlisted" />
+      <span class="custom-checkbox"></span>
+      Unlisted Coin
+      <span class="tooltip">Not listed on mainstream, reputable, centralized exchanges like Coinbase and Kraken.</span>
     </label>
   </div>
   </form>
