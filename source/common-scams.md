@@ -1,0 +1,3 @@
+# Common Scams
+
+Some common types of crypto scams include...

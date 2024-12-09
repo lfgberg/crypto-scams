@@ -107,6 +107,9 @@ theme_config:
   colorscheme: dark
   nav:
     home: /
+    Common Scams: /common-scams
+    Next Steps: /next-steps
+    Reporting Scams: /reporting-scams
   posts_overview:
     show_all_posts: false
     post_count: 0

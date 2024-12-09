@@ -231,7 +231,9 @@
       if (redFlagCount > 0){
         const riskMessage = riskLevels[riskLevel];
 
-        resultBox.innerHTML = `<p><strong>${riskMessage}</strong></p>`;
+        resultBox.innerHTML = `<p><strong>${riskMessage}</strong></p>
+        <a href="/common-scams" target="_self" rel="noopener noreferrer" class="cta-button">Learn More</a>
+        `;
         resultBox.style.display = "block";
       } else {
         resultBox.style.display = "none"; // Hide the result box if no options are selected
