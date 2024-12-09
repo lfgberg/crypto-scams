@@ -185,12 +185,15 @@
       const lowRiskThreshold = 0;
       const medRiskThreshold = 3;
       const highRiskThreshold = 5;
+      const critRiskThreshold = 7;
 
       if (redFlagCount >= lowRiskThreshold && redFlagCount < medRiskThreshold){
         return 0;
       } else if (redFlagCount >= medRiskThreshold && redFlagCount < highRiskThreshold){
         return 1;
-      } else return 2;
+      } else if (redFlagCount >= highRiskThreshold && redFlagCount < critRiskThreshold){
+        return 2;
+      } else return 3;
     }
 
     const riskLevels = {
@@ -219,6 +222,11 @@
       // Get the general risk level based on the number of flags selected
       redFlagCount = selectedNames.length;
       riskLevel = checkRiskLevel(redFlagCount);
+
+      // Some of these are automatic high or critical - no legit project is going to do this
+      if (selectedNames.includes("private-key") || selectedNames.includes("withdrawal") || selectedNames.includes("FDIC")){
+        riskLevel = 3;
+      }
 
       if (redFlagCount > 0){
         const riskMessage = riskLevels[riskLevel];
