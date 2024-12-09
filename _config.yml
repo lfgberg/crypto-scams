@@ -109,7 +109,7 @@ theme_config:
     home: /
     Common Scams: /common-scams
     Next Steps: /next-steps
-    Reporting Scams: /reporting-scams
+    Best Practices: /best-practices
     Glossary: /glossary
   posts_overview:
     show_all_posts: false
