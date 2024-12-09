@@ -110,6 +110,7 @@ theme_config:
     Common Scams: /common-scams
     Next Steps: /next-steps
     Reporting Scams: /reporting-scams
+    Glossary: /glossary
   posts_overview:
     show_all_posts: false
     post_count: 0

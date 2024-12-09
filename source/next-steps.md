@@ -1,3 +1,9 @@
 # Next Steps
 
-If you've fallen victim to a crypto scam, it's important to take the following steps.
+## Evaluating a Potential Scam
+
+...
+
+## What To Do If You've Fallen Victim
+
+...
