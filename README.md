@@ -1,2 +1,2 @@
 # crypto-scams
-A website created for an IST597, Usable Security in Blockchain, final project on identifying crypto scams
+A website created for an IST597, Usable Security in Blockchain, final project on identifying crypto scams. Visible [on my website](https://crypto-scams.lfgberg.org/).
